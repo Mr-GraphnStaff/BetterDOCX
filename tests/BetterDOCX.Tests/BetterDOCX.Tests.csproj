@@ -26,4 +26,16 @@
     <ProjectReference Include="..\..\src\BetterDOCX.Validation\BetterDOCX.Validation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\schemas\document-specification.schema.json"
+          Link="Fixtures\document-specification.schema.json"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\examples\valid-professional-brief.json"
+          Link="Fixtures\valid-professional-brief.json"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\examples\invalid-empty-bullets.json"
+          Link="Fixtures\invalid-empty-bullets.json"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

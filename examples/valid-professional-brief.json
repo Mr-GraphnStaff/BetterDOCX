@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "document": {
+    "title": "Enterprise AI Agent Security Architecture",
+    "purpose": "Decision support",
+    "audience": "CISO and executive leadership",
+    "design": {
+      "family": "professional",
+      "density": "standard",
+      "accentColor": "#1F4E79"
+    },
+    "blocks": [
+      {
+        "type": "title",
+        "text": "Enterprise AI Agent Security Architecture",
+        "subtitle": "Decision Brief"
+      },
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Recommended Direction"
+      },
+      {
+        "type": "paragraph",
+        "content": "Adopt identity-bound agent access and explicit controls for data, tools, and connectors."
+      },
+      {
+        "type": "bulletList",
+        "items": [
+          "Bind agent activity to an accountable identity.",
+          "Apply explicit data and connector policy.",
+          "Measure control effectiveness continuously."
+        ]
+      },
+      {
+        "type": "pageBreak"
+      }
+    ]
+  }
+}
