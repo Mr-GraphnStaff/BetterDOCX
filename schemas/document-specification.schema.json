@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Mr-GraphnStaff/BetterDOCX/schemas/document-specification.schema.json",
+  "title": "BetterDOCX Document Specification",
+  "description": "Version 1 contract between an authoring agent and the BetterDOCX composition engine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "document"],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "document": {
+      "$ref": "#/$defs/document"
+    }
+  },
+  "$defs": {
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "design", "blocks"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": ["string", "null"]
+        },
+        "audience": {
+          "type": ["string", "null"]
+        },
+        "design": {
+          "$ref": "#/$defs/design"
+        },
+        "blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              { "$ref": "#/$defs/titleBlock" },
+              { "$ref": "#/$defs/headingBlock" },
+              { "$ref": "#/$defs/paragraphBlock" },
+              { "$ref": "#/$defs/bulletListBlock" },
+              { "$ref": "#/$defs/pageBreakBlock" }
+            ]
+          }
+        }
+      }
+    },
+    "design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "density", "accentColor"],
+      "properties": {
+        "family": {
+          "enum": ["professional", "executive", "technical", "minimal", "editorial"]
+        },
+        "density": {
+          "enum": ["compact", "standard", "relaxed"]
+        },
+        "accentColor": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        }
+      }
+    },
+    "titleBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "text"],
+      "properties": {
+        "type": { "const": "title" },
+        "text": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": ["string", "null"] }
+      }
+    },
+    "headingBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "level", "text"],
+      "properties": {
+        "type": { "const": "heading" },
+        "level": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "text": { "type": "string", "minLength": 1 }
+      }
+    },
+    "paragraphBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "content"],
+      "properties": {
+        "type": { "const": "paragraph" },
+        "content": { "type": "string", "minLength": 1 }
+      }
+    },
+    "bulletListBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "items"],
+      "properties": {
+        "type": { "const": "bulletList" },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "pageBreakBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "const": "pageBreak" }
+      }
+    }
+  }
+}

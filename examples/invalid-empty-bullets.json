@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "document": {
+    "title": "Invalid example",
+    "purpose": null,
+    "audience": null,
+    "design": {
+      "family": "professional",
+      "density": "standard",
+      "accentColor": "#1F4E79"
+    },
+    "blocks": [
+      {
+        "type": "bulletList",
+        "items": []
+      }
+    ]
+  }
+}

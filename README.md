@@ -41,3 +41,10 @@ dotnet run --project .\src\BetterDOCX.Cli -- preflight
 Use `--json` for a machine-readable preflight result. Use
 `--skip-word-launch` when you want registration checks without starting and
 closing Microsoft Word.
+
+## Document specification
+
+The versioned contract between an authoring agent and the composition engine is
+documented in [Document Specification Version 1](./docs/document-specification-v1.md).
+The normative JSON Schema is
+[`schemas/document-specification.schema.json`](./schemas/document-specification.schema.json).
