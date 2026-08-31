@@ -17,7 +17,8 @@ The initial architecture and implementation roadmap are documented in
 
 ## Status
 
-Design and project layout.
+Foundation sprint. The repository contains the .NET solution boundaries,
+Windows/Word/Poppler environment preflight, automated tests, and CI.
 
 ## Core principles
 
@@ -28,3 +29,15 @@ Design and project layout.
 - The engine owns deterministic document construction and validation.
 - The first release is local and Windows-first.
 
+## Developer quick start
+
+```powershell
+dotnet restore BetterDOCX.sln
+dotnet build BetterDOCX.sln --configuration Release --no-restore
+dotnet test BetterDOCX.sln --configuration Release --no-build
+dotnet run --project .\src\BetterDOCX.Cli -- preflight
+```
+
+Use `--json` for a machine-readable preflight result. Use
+`--skip-word-launch` when you want registration checks without starting and
+closing Microsoft Word.
