@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+.idea/
+TestResults/
+outputs/*
+!outputs/.gitkeep
+work/
+*.user
+*.suo
+*.pdf
+
